@@ -476,7 +476,7 @@ export default function Community() {
               <p className="text-slate-400 text-[12px]">가장 먼저 글을 남겨보세요!</p>
             </div>
           ) : (
-          filteredPosts.map((post, idx) => {
+          <AnimatePresence> {filteredPosts.map((post, idx) => {
               const isHot = sort === "popular" && idx < 3;
               const isCommenting = commentingPostId === post.id;
               return (
@@ -588,20 +588,16 @@ export default function Community() {
                             className="shrink-0 h-9 rounded-full px-4 font-bold bg-indigo-600 hover:bg-indigo-700"
                           >
                             등록
-                          </Button>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })
-          )}
-        </div>
-      </div>
+                        );
+        })}
+      </AnimatePresence>
+    )}
 
-
-      <PostDetailDialog postId={selectedPostId} onOpenChange={(open) => { if (!open) setSelectedPostId(null); }} />
-    </div>
-  );
+    {/* 상세 팝업창 */}
+    <PostDetailDialog 
+      postId={selectedPostId} 
+      onOpenChange={(open) => { if (!open) setSelectedPostId(null); }} 
+    />
+  </div>
+);
 }
