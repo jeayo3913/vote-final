@@ -587,17 +587,14 @@ export default function Community() {
                             onClick={() => quickCommentMutation.mutate({ postId: post.id, content: quickComment.trim() })}
                             className="shrink-0 h-9 rounded-full px-4 font-bold bg-indigo-600 hover:bg-indigo-700"
                           >
-                            등록
-                        );
-        })}
-      </AnimatePresence>
-    )}
-
-    {/* 상세 팝업창 */}
-    <PostDetailDialog 
-      postId={selectedPostId} 
-      onOpenChange={(open) => { if (!open) setSelectedPostId(null); }} 
-    />
-  </div>
-);
-}
+                        등록
+                          </Button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </AnimatePresence>
+        )}
