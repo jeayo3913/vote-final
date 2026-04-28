@@ -595,7 +595,7 @@ export default function Community() {
                   </AnimatePresence>
                 </div>
               );
-            })}
+            })
           )}
         </div>
       </div>
