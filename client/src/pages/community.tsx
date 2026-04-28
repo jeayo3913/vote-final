@@ -476,7 +476,7 @@ export default function Community() {
               <p className="text-slate-400 text-[12px]">가장 먼저 글을 남겨보세요!</p>
             </div>
           ) : (
-          {filteredPosts.map((post, idx) => {
+          filteredPosts.map((post, idx) => {
               const isHot = sort === "popular" && idx < 3;
               const isCommenting = commentingPostId === post.id;
               return (
